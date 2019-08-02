@@ -1,1 +1,1 @@
-WinRedisComplete\redis-cli < player.dat
+start cmd /c WinRedisComplete\addPlayerData.bat

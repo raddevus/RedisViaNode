@@ -73,10 +73,10 @@ async function listenForConnection(request, response) {
                 
                 var score = query.score;
                 console.log("score : " + score);
-                retval = client.zadd("players", score,playerId, redis.print);
+                client.zadd("players", score,playerId, redis.print);
             }
             response.writeHead(200);
-            response.end(retval);
+            response.end("success : item was added");
 
 //            getPlayers();
 
