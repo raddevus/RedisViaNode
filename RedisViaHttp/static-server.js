@@ -132,6 +132,11 @@ async function listenForConnection(request, response) {
 		}
         else{
             console.log(filename);
+            console.log(process.cwd());
+            if (filename == (process.cwd() + "\\")){
+                // sets default document to basic.htm
+                filename += "basic.htm";
+            }
             fs.exists(filename, function(exists) {
                 if(!exists) {
                     response.writeHead(404, {"Content-Type": "text/plain"});

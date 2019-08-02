@@ -20,5 +20,33 @@
 		<h3>Get All Players</h3>
 		<p>Display a list of all players and their scores.</p>
 		<p><a href="http://localhost:7979/getPlayers" target="_blank">http://localhost:7979/getPlayers</a></p>
+		<h3>Add Custom New Player</h3>
+		<p><button onclick="addNewPlayer()">Add Player</button> <== Generates random player and score and adds it to Redis cache.</p>
+		<script>
+			function addNewPlayer(){
+				var idText = "randomPlayer";
+				deleteNode(idText);
+				var playerId = "player:" + (Math.floor(Math.random() * 3000) + 500);
+				var score = Math.floor(Math.random() * 2500) + 100;
+				var link = "http://localhost:7979/redis/?add=true&playerId=" + playerId + "&score=" + score;
+				var a = document.createElement('a');
+  				var linkText = document.createTextNode(link);
+  				a.appendChild(linkText);
+  				a.title = link;
+				a.href = link;
+				a.id = idText;
+				a.target="_blank";
+				document.body.appendChild(a);
+				document.getElementById(idText).click();
+
+			}
+
+			function deleteNode(idText){
+ 				 var el = document.getElementById(idText);
+  				if (el !== null){
+	    			el.remove();
+  				}
+			}
+		</script>
     </body>
 </html>
