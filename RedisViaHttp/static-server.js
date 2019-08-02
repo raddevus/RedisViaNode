@@ -174,7 +174,7 @@ async function listenForConnection(request, response) {
         function firstMethod(err,replies){
             totalPlayers = replies.length;
             console.log("totalPlayers : " + totalPlayers);
-            playerScoreJson = "<div><span>Player</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><span>Score</span></div>"
+            playerScoreJson = "<div><span>Player</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><span>Score</span></div><hr>"
             replies.forEach(getPlayersAndScoresHtml);
         }
         return;
