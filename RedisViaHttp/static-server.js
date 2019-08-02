@@ -10,7 +10,7 @@ var client = redis.createClient();
 
 var playerCounter = 0;
 var totalPlayers = 0;
-var playerScoreJson = "{";
+var playerScoreJson = "";
 var presult = null;
 
 var promise1 = null;
@@ -92,7 +92,7 @@ async function listenForConnection(request, response) {
         }
         else if (request.url.includes("getPlayers")){
             this.resolve = null;
-            playerScoreJson = "{";
+            playerScoreJson = "";
             playerCounter = 0;
             
             getPlayers();
@@ -168,22 +168,15 @@ async function listenForConnection(request, response) {
     }
     
     async function doBasics(){
-        client.set("string key", "string val", redis.print);
-        client.hset("hash key", "hashtest 1", "some value", redis.print);
-        client.hset(["hash key", "hashtest 2", "some other value"], redis.print);
         client.zcard("players", redis.print);
-        
-        client.zrangebyscore("players", 100, 500 , "withscores",firstMethod);
+       
+        client.zrange("players", 0, -1 , "withscores",firstMethod);
         function firstMethod(err,replies){
             totalPlayers = replies.length;
             console.log("totalPlayers : " + totalPlayers);
-            replies.forEach(getPlayersAndScores);
+            playerScoreJson = "<div><span>Player</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><span>Score</span></div>"
+            replies.forEach(getPlayersAndScoresHtml);
         }
-        
-        // client.zrange("players", 0, -1, function (err, replies){
-        //     replies.forEach(doWork);
-        // });
-
         return;
     }
 
@@ -206,7 +199,33 @@ async function listenForConnection(request, response) {
         console.log("\tPlayer - : " + reply);
        
     }
+
+    function getPlayersAndScoresHtml(reply, i){
+        ++playerCounter;
+        //console.log(playerCounter);
+        if (playerCounter % 2 == 0){
+            console.log("\tScore - : " + reply);
+            buildScoreHtml(reply);
+            return;
+        }
+        buildPlayerHtml(reply);
+        console.log("\tPlayer - : " + reply);
+    }
     
+    function buildPlayerHtml(player){
+        playerScoreJson += "<div><span>" + player + "</span>";
+    }
+
+    function buildScoreHtml(score){
+        playerScoreJson += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>";
+        playerScoreJson += score + "</span></div>";
+        if (playerCounter == totalPlayers){
+            //   playerScoreJson += "}";
+               console.log(playerScoreJson);
+               this.resolve("finished");
+           }
+    }
+
     function setJsonValue(token,reply,addComma){
         playerScoreJson += token + ":\"" + reply + "\"";
         if (addComma){
@@ -219,7 +238,6 @@ async function listenForConnection(request, response) {
          //   playerScoreJson += "}";
             console.log(playerScoreJson);
             this.resolve("finished");
-            isComplete = true;
         }
     }
 
