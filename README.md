@@ -23,4 +23,13 @@ As Each bat file runs you will see some activity.
 * This console window will stay open to keep the Redis server running.  It'll look something like the following:
 
 ![alt text](https://raw.githubusercontent.com/raddevus/RedisViaNode/master/RedisViaHttp/images/RedisServerConsole.png)
-###
+### 3_loadPlayerData.bat
+* loads some initial player data from player.dat file (this console window closes)
+
+### 4_startRedisClient.bat
+* starts up the Redis-Cli (Redis client) in a console so you can run commands and test the cache data
+
+
+### 5_startHttpServer.bat
+* starts up the custom Node HTTP server via >node static-server.js 
+
