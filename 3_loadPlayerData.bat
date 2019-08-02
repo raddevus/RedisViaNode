@@ -1,0 +1,1 @@
+WinRedisComplete\redis-cli < player.dat

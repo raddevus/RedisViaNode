@@ -1,0 +1,6 @@
+zadd players 359 Player:100
+zadd players 283 Player:101
+zadd players 883 Player:102
+zadd players 577 Player:103
+zadd players 1038 Player:200
+zadd players 678 Player:201

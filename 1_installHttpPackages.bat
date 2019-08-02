@@ -1,0 +1,1 @@
+cmd /c call RedisViaHttp\npminstall.bat

@@ -1,0 +1,24 @@
+{
+  "name": "httpserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "static-server.js",
+  "dependencies": {
+    "redis": "^2.8.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raddevus/NodeRedisServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raddevus/NodeRedisServer/issues"
+  },
+  "homepage": "https://github.com/raddevus/NodeRedisServer#readme"
+}

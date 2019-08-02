@@ -1,0 +1,1 @@
+start cmd /k WinRedisComplete\redis-server
