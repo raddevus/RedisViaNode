@@ -20,7 +20,7 @@ As Each bat file runs you will see some activity.
 * runs npm install in the \RedisViaHttp folder (insures required Node modules are available so HTTP server will run)
 ### 2_startRedisServer.bat
 * Starts Redis Server from \WinRedisComplete folder (server runs on default port 6379)
-* This console window will stay open to keep the Redis server running.
+* This console window will stay open to keep the Redis server running.  It'll look something like the following:
 
-![alt text](https://raw.githubusercontent.com/raddevus/RedisViaNode/master/RedisViaHttp/images/ClientZrange.png)
+![alt text](https://raw.githubusercontent.com/raddevus/RedisViaNode/master/RedisViaHttp/images/RedisServerConsole.png)
 ###
