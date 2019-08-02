@@ -22,4 +22,5 @@ As Each bat file runs you will see some activity.
 * Starts Redis Server from \WinRedisComplete folder (server runs on default port 6379)
 * This console window will stay open to keep the Redis server running.
 
+![alt text](https://raw.githubusercontent.com/raddevus/RedisViaNode/master/RedisViaHttp/images/ClientZrange.png)
 ###
