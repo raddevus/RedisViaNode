@@ -1,6 +1,6 @@
 # RedisViaNode
 ## Summary
-A complete example which includes Windows Redis server and client and provides a Node JS based http server to which allows you to run Redis commands via Node and a web page.
+A complete example which includes Windows Redis server and client and provides a Node JS based http server which allows you to run Redis commands via Node and a web page (incuded in repo).
 
 ## Prerequisite Requirements
 * Windows box (Win10)
